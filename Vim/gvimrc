@@ -1,0 +1,27 @@
+"-------------------------------------------------------------------------------"
+" GUI
+"-------------------------------------------------------------------------------"
+if has('gui_running')
+    " gm
+    set guioptions-=e
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=l
+    set guioptions-=L
+
+    let no_buffers_menu = 1
+
+    set mousehide
+    set vb
+    set t_vb=
+
+    if has('mac')
+        set macmeta
+        set guifont=Ricty-Regular:h13
+        set lines=40
+        set columns=120
+    endif
+endif
+
+
