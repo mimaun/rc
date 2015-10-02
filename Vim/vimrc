@@ -189,6 +189,11 @@ NeoBundle 'Yggdroot/indentLine'
 
 " JS snippets
 NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'mattn/jscomplete-vim'
+
+autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS 
+let g:jscomplete_use = ['dom', 'moz']
+" => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
 
 " JS syntax highlight
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
