@@ -1,0 +1,39 @@
+export PATH=$PATH:/usr/local/bin
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export JAVA_HOME=/usr/local/java/j2sdk
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=/usr/bin:$PATH
+# export PYTHONPATH=$HOME/lib/python2.7/site-packages/:$PATH
+#連続したコマンドは記憶しない(ignoredups)
+#スペースで始まるコマンドは記憶しない(ignorespace)
+export HISTCONTROL=ignoreboth
+
+#history=500 (.bashrc)
+export HISTSIZE=500
+#history=500 (.bash_profile)
+export HISTFILESIZE=500
+
+#ls --color
+alias ls='ls -FGh'
+#gvim
+alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim'
+#sl
+alias sl="sl -F"
+#neko
+alias neko='~/joke/cat.sh'
+#python
+# alias python='/usr/local/bin/python3.3'
+alias localserver='cd /Applications/XAMPP/xamppfiles/htdocs'
+
+alias fuck='eval $(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
+
+# ll
+alias ll='ls -l'
+
+function dict() {
+   # grep $1 /path/to/gene.txt -A 1 -wi --color
+   grep "$1" /Users/misato/gene95/gene-utf8.txt -E -A 1 -wi --color
+}
+
+
