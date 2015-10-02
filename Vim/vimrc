@@ -147,8 +147,8 @@ endif
 " Let neobundle manage neobundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'  " QuickRun
@@ -187,8 +187,14 @@ NeoBundle 'koron/nyancat-vim'
 NeoBundle 'Yggdroot/indentLine'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 
-" JS
-" NeoBundle 'marijnh/tern_for_vim'
+" JS snippets
+NeoBundle 'marijnh/tern_for_vim'
+
+" JS syntax highlight
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
+" JSON
+NeoBundle 'elzr/vim-json'
 
 
 
@@ -196,25 +202,25 @@ filetype plugin on
 filetype indent on
 
 " "" neosnippet
-" " Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-"
-"
-" " SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"             \ "\<Plug>(neosnippet_expand_or_jump)"
-"             \: pumvisible() ? "\<C-n>" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"             \ "\<Plug>(neosnippet_expand_or_jump)"
-"             \: "\<TAB>"
-"
-" " For snippet_complete marker.
-" if has('conceal')
-"     set conceallevel=2 concealcursor=i
-" endif
-"
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
+
 
 " neocomplete
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -377,5 +383,14 @@ let g:indent_guides_start_level=2
 "caw.vim
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
+
+" vim-snippets
+let g:neosnippet#disable_runtime_snippets = {
+        \   '_' : 1,
+        \ }
+let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 set shell=/bin/bash
